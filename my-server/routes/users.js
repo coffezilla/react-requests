@@ -9,6 +9,9 @@ dotenv.config();
 // GET all users
 router.get("/", async (req, res) => {
   try {
+    // fake delay
+    // await new Promise((resolve) => setTimeout(resolve, 3000));
+
     const users = await userService.getUsers();
     const responseApi = {
       users: users,
