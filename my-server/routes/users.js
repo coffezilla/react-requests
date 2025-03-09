@@ -10,7 +10,7 @@ dotenv.config();
 router.get("/", async (req, res) => {
   try {
     // fake delay
-    // await new Promise((resolve) => setTimeout(resolve, 3000));
+    await new Promise((resolve) => setTimeout(resolve, 3000));
 
     const users = await userService.getUsers();
     const responseApi = {
@@ -43,6 +43,8 @@ router.get("/:id", async (req, res) => {
   const userId = req.params.id;
 
   try {
+    await new Promise((resolve) => setTimeout(resolve, 3000));
+
     const user = await userService.getUserById(userId);
     if (user) {
       res.json(user);
